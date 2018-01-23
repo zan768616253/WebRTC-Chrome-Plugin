@@ -25,15 +25,15 @@ function captureDesktop() {
     if (enableTabCaptureAPI) {
         captureTabUsingTabCapture();
         return;
+    } else {
+        var screenSources = ['screen', 'window', 'audio'];
+
+        if (enableSpeakers === false) {
+            screenSources = ['screen', 'window'];
+        }
+    
+        chrome.desktopCapture.chooseDesktopMedia(screenSources, onAccessApproved);
     }
-
-    var screenSources = ['screen', 'window', 'audio'];
-
-    if (enableSpeakers === false) {
-        screenSources = ['screen', 'window'];
-    }
-
-    chrome.desktopCapture.chooseDesktopMedia(screenSources, onAccessApproved);
 }
 
 function onAccessApproved(chromeMediaSourceId, opts) {

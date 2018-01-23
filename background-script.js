@@ -51,9 +51,9 @@ chrome.runtime.onConnect.addListener(function (port) {
                 } else {
                     chrome.storage.sync.set({
                         enableTabCaptureAPI: 'true', // TRUE
-                        enableMicrophone: 'false',
+                        enableMicrophone: 'true',
                         enableCamera: 'false',
-                        enableScreen: 'false',
+                        enableScreen: 'true',
                         isRecording: 'true', // TRUE
                         enableSpeakers: 'false'
                     }, function() {

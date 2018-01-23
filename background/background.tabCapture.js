@@ -6,19 +6,31 @@ function captureTabUsingTabCapture(isNoAudio) {
         var activeTab = arrayOfTabs[0];
         var activeTabId = activeTab.id; // or do whatever you need
 
+        // var constraints = {
+        //     audio: isNoAudio === true ? false : true,
+        //     video: true,
+        //     videoConstraints: {
+        //         mandatory: {
+        //             chromeMediaSource: 'tab',
+        //             maxWidth: 3840,
+        //             maxHeight: 2160
+        //         }
+        //     },
+        //     audioConstraints: isNoAudio === true ? false : {
+        //         mandatory: {
+        //             echoCancellation: true
+        //         }
+        //     }
+        // };
+
         var constraints = {
-            audio: isNoAudio === true ? false : true,
+            audio: false,
             video: true,
             videoConstraints: {
                 mandatory: {
                     chromeMediaSource: 'tab',
                     maxWidth: 3840,
                     maxHeight: 2160
-                }
-            },
-            audioConstraints: isNoAudio === true ? false : {
-                mandatory: {
-                    echoCancellation: true
                 }
             }
         };
@@ -35,6 +47,16 @@ function captureTabUsingTabCapture(isNoAudio) {
                 code: executeScriptForTabCapture.toString() + ';executeScriptForTabCapture();'
             });
         });
+
+        // chrome.tabCapture.capture(constraints, function(stream) {
+        //     initVideoPlayer(stream);
+        //     gotStream(stream);
+
+        //     // to fix bug: https://github.com/muaz-khan/RecordRTC/issues/281
+        //     chrome.tabs.executeScript(activeTabId, {
+        //         code: executeScriptForTabCapture.toString() + ';executeScriptForTabCapture();'
+        //     });
+        // });
     });
 }
 
