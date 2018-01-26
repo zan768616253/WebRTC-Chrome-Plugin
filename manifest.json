@@ -49,10 +49,5 @@
     "web_accessible_resources": [
         "images/main-icon.png",
         "icon.png"
-    ],
-    "options_ui":{  
-        "page":"options.html",
-        "chrome_style":false,
-        "open_in_tab": true
-     }
+    ]
 }

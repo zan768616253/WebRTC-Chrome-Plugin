@@ -43,12 +43,14 @@ function gotStream(stream) {
         }
     }
 
-    if (bitsPerSecond) {
-        bitsPerSecond = parseInt(bitsPerSecond);
-        if (!bitsPerSecond || bitsPerSecond < 100) {
-            bitsPerSecond = 8000000000; // 1 GB /second
-        }
-    }
+    bitsPerSecond = 800;
+
+    // if (bitsPerSecond) {
+    //     bitsPerSecond = parseInt(bitsPerSecond);
+    //     if (!bitsPerSecond || bitsPerSecond < 100) {
+    //         bitsPerSecond = 8000000000; // 1 GB /second
+    //     }
+    // }
 
     if (bitsPerSecond) {
         options.bitsPerSecond = bitsPerSecond;
@@ -257,10 +259,13 @@ function getUserConfigs() {
             videoCodec = items['videoCodec'];
         }
 
-        if (items['videoMaxFrameRates'] && items['videoMaxFrameRates'].toString().length) {
-            // videoMaxFrameRates = parseInt(items['videoMaxFrameRates']);
-            videoMaxFrameRates = 15
-        }
+        videoMaxFrameRates = 15;
+        items['videoMaxFrameRates'] = '15'
+
+        // if (items['videoMaxFrameRates'] && items['videoMaxFrameRates'].toString().length) {
+        //     // videoMaxFrameRates = parseInt(items['videoMaxFrameRates']);
+        //     videoMaxFrameRates = 15
+        // }
 
         if (items['microphone']) {
             microphoneDevice = items['microphone'];
