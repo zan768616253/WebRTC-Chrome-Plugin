@@ -8,7 +8,6 @@ var header = document.querySelector('header');
 
 function setVideoWidth() {
     video.style.cursor = 'pointer';
-    video.style.marginTop = header.clientHeight;
     video.style.height = innerHeight - header.clientHeight;
 }
 
@@ -44,16 +43,16 @@ var btnUploadDropDown = document.querySelector('#btn-upload-dropdown');
 document.querySelector('#btn-upload').onclick = function(e) {
     e.stopPropagation();
 
-    if (!file) {
-        alert('You have no recordings.');
-        return;
-    }
+    // if (!file) {
+    //     alert('You have no recordings.');
+    //     return;
+    // }
 
-    if (btnUploadDropDown.className === 'visible') {
-        btnUploadDropDown.className = '';
-    } else {
-        btnUploadDropDown.className = 'visible';
-    }
+    // if (btnUploadDropDown.className === 'visible') {
+    //     btnUploadDropDown.className = '';
+    // } else {
+    //     btnUploadDropDown.className = 'visible';
+    // }
 };
 
 var btnRecordingsListDropDown = document.querySelector('#btn-recordings-list-dropdown');
